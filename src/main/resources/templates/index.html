@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+</head>
+<body>
+	<div id="user">
+		<h2>返回单个用户</h2>
+		<span th:text="${user.userName}"></span>
+	</div>
+	<div id="userList" th:if="${not #lists.isEmpty(userList)}">
+		<h2>返回用户列表</h2>
+		<ul th:each="user:${userList}">
+			<li>
+				<span th:text="${user.userName}"></span>
+				<span th:text="${user.userId}"></span>
+				<!-- <button th:onclick="'getName(\''+${user.userName}+'\');'">获得名字</button> -->
+			</li>
+		</ul>
+	</div>
+	<script th:inline="javascript">
+		var user = [[${user}]];
+		console.log(user.userName+"/"+user.age);
+	    function getName(name) {
+	        console.log(name);
+	    }
+	</script>
+</body>
+</html>

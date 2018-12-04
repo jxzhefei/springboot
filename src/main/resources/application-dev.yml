@@ -1,0 +1,20 @@
+server:
+  port: 8090
+  servlet:    session:      timeout: 600 #用户会话过期时间，以秒为单位
+  ssl:
+    key-store: sslcer.p12
+    key-store-password: zhongzf
+    key-store-type: PKCS12
+    key-alias: tomcat
+spring:
+  jpa:    hibernate:      ddl-auto: update
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      datasource:    url: jdbc:mysql://119.29.63.251:3306/spdb
+    driver-class-name: com.mysql.jdbc.Driver
+    username: spuser
+    password: zf2018logging:
+  config: classpath:log4j2-spring.xml 
+
+ 
